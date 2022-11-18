@@ -27,10 +27,27 @@ public class Main {
         }
         mergeSort(leftArray,middle);
         mergeSort(rightArray,arrLength - middle);
+        merge(leftArray, rightArray,arr , middle, arrLength - middle);
     }
 
     public static void merge(int[] leftArray,int[] rightArray,int[] array,
                              int leftArraySize, int rightArraySize){
+        int i = 0;
+        int l = 0;
+        int r = 0;
+        while (l < leftArraySize && r <rightArraySize){
+            if (leftArray[l] < rightArray[r]){
+                array[i++] = leftArray[l++];
+            }else {
+                array[i++] = rightArray[r++];
+            }
+        }
+        while (l < leftArraySize){
+            array[i++] = leftArray[l++];
+        }
+        while (r < rightArraySize){
+            array[i++] = rightArray[r++];
+        }
 
     }
 }
