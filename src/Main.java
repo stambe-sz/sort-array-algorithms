@@ -28,5 +28,10 @@ public class Main {
         mergeSort(leftArray,middle);
         mergeSort(rightArray,arrLength - middle);
     }
+
+    public static void merge(int[] leftArray,int[] rightArray,int[] array,
+                             int leftArraySize, int rightArraySize){
+
+    }
 }
 
