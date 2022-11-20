@@ -3,10 +3,7 @@ public class Main {
         int[] arr = {54, 30, 15, 5, 10, 25, 60};
         int n = arr.length;
 
-
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
+        countSort(arr,n);
     }
 
     private static int getMaxElement(int[] arr,int n){
@@ -29,11 +26,18 @@ public class Main {
         for (int i = 0; i < n; i++) {
             count[arr[i]]++;
         }
-        for (int i = 0; i < maxElement; i++) {
+        for (int i = 1; i <= maxElement; i++) {
             count[i] += count[i - 1];
         }
-        for (int i = n - 1; i > 0 ; i--) {
-
+        for (int i = n - 1; i >= 0 ; i--) {
+            output[count[arr[i]] - 1] = arr[i];
+            count[arr[i]]--;
+        }
+        for (int i = 0; i < n; i++) {
+            arr[i] = output[i];
+        }
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
         }
     }
 }
